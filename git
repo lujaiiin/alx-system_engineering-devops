@@ -1,5 +1,4 @@
 #!/bin/bash
-read var
 git add .
 git commit -m "tesr"
 git push 
