@@ -1,3 +1,0 @@
-#!/bin/bash
-read v
-chmod +x $(v)
