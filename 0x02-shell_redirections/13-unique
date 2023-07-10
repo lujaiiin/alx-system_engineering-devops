@@ -1,3 +1,2 @@
 #!/bin/bash
-read va
-echo "${va}"
+ls -u
