@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#print best scoll untill 8 than print good luck and continue
+
+j=0
+while [ $j -le 7 ]
+do
+	echo "Best School"
+	if [ $j -eq 2 ]; then
+		echo "bad luck"
+	fi
+
+	if [ $j -eq 5 ]; then
+		echo "good luck"
+	fi
+
+
+	j=$((j + 1))
+done
