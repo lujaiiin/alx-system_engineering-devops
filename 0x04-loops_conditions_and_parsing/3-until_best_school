@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-#print Best School 10 times
+#print best scoll using unti
 
 j=1
-while [ "$j" -eq 10 ]
+until [ $j == 11 ]
 do
 	echo "Best School"
 	j=$((j + 1))
