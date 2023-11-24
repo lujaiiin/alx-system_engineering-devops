@@ -2,17 +2,15 @@
 #print best scoll untill 8 than print good luck and continue
 
 j=0
-while [ $j -le 7 ]
+while [ $j -le 9 ]
 do
-	echo "Best School"
-	if [ $j -eq 2 ]; then
+	if [ $j -eq 3 ]; then
 		echo "bad luck"
-	fi
-
-	if [ $j -eq 5 ]; then
+	elif [ $j -eq 7 ]; then
 		echo "good luck"
+	else
+		echo "Best School"
 	fi
-
 
 	j=$((j + 1))
 done
