@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #print the list your proccess
 
-ps aux
+ps aux --forest
