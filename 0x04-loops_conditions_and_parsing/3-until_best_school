@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#print best scoll using unti
+
+j=1
+until [ $j == 11 ]
+do
+	echo "Best School"
+	j=$((j + 1))
+done
