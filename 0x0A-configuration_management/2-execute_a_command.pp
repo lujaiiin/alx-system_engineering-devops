@@ -1,4 +1,4 @@
-# Using Puppet, create a manifest that ki
+# Us
 exec { 'pkill':
 command => '/usr/bin/pkill -f killmenow'
 }
