@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+# Install and configure nginx web server
+
+# Update the package lists for upgrades and new package installations
+sudo apt-get update
+
+# Install nginx
+sudo apt-get install -y nginx
+
+# Write "Hello World!" to the index.html file
+echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null
+
+# Write "Ceci n'est pas une page" to the error_404.html file
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/error_404.html > /dev/null
+
+# Define the Nginx configuration
+CONFIG="
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        root /var/www/html;
+
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name ajwadg.tech;
+
+        error_page 404 /error_404.html;
+
+        location = /error_404.html {
+                root /var/www/html;
+                internal;
+        }
+
+        location /redirect_me {
+                return 301 https://www.nginx.com/blog/creating-nginx-rewrite-rules/;
+        }
+}"
+
+# Write the Nginx configuration to the default site configuration file
+echo "$CONFIG" | sudo tee /etc/nginx/sites-available/default
+
+# Restart the nginx service
+sudo service nginx restart
+
