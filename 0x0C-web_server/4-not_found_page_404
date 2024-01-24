@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
-# Install and configure nginx web server
+# Ins
 
 # Update the package lists for upgrades and new package installations
 sudo apt-get update
 
-# Install nginx
+# Ins
 sudo apt-get install -y nginx
 
-# Write "Hello World!" to the index.html file
+# Write
 echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null
 
-# Write "Ceci n'est pas une page" to the error_404.html file
+# Write
 echo "Ceci n'est pas une page" | sudo tee /var/www/html/error_404.html > /dev/null
 
 # Define the Nginx configuration
@@ -37,9 +37,8 @@ server {
         }
 }"
 
-# Write the Nginx configuration to the default site configuration file
+# Write
 echo "$CONFIG" | sudo tee /etc/nginx/sites-available/default
 
-# Restart the nginx service
+# Res
 sudo service nginx restart
-
