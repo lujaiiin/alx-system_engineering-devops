@@ -1,8 +1,31 @@
 #!/usr/bin/env bash
-# uu
+#installing
 sudo apt-get -y update
-# i
 sudo apt-get -y install nginx
 name=$(hostname)
-echo "$config" | sudo tee /etc/nginx/sites-available/default
+echo "<h1>HollA HOLLA HOLAA $name</h1>" > /var/www/html/index.html
+echo "<h1>there is error babe</h1>" > /var/www/html/error_404.html
+con="server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    add_header X-Served-By $name always;
+
+    root /var/www/html;
+    index index.html;
+
+    server_name lujainb.tech;
+
+    error_page 404 /error_404.html;
+
+    location = /error_404.html {
+        root /var/www/html;
+        internal;
+    }
+
+    location /redirect_me {
+        return 301 https://www.nginx.com/blog/creating-nginx-rewrite-rules/;
+    }
+}"
+echo "$con" | sudo tee /etc/nginx/sites-available/default
 sudo service nginx restart
