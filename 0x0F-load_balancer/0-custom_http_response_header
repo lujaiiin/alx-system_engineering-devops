@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# uu
+sudo apt-get -y update
+# i
+sudo apt-get -y install nginx
+name=$(hostname)
+echo "$config" | sudo tee /etc/nginx/sites-available/default
+sudo service nginx restart
