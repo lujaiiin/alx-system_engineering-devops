@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#installing
+
+sudo apt-get -y update
+sudo apt-get -y install haproxy
+echo "lala
+" | sudo tee -a /etc/haproxy/haproxy.cfg
+sudo service haproxy restart
