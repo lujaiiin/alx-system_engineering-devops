@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# www-data
+
+sudo -u "$1" whoami
