@@ -3,17 +3,16 @@
 import requests
 import sys
 
-
 if __name__ == '__main__':
-    employeeId = sys.argv[1]
+    employeeId = int(sys.argv[1])
     baseUrl = "https://jsonplaceholder.typicode.com/users"
-    url = baseUrl + "/" + employeeId
+    url = baseUrl + "/" + str(employeeId)
 
     resp = requests.get(url)
     name = resp.json().get('name')
 
-    Url = url + "/todos"
-    resp = requests.get(Url)
+    todosUrl = "https://jsonplaceholder.typicode.com/todos?userId=" + str(employeeId)
+    resp = requests.get(todosUrl)
     tasks = resp.json()
 
     with open('{}.csv'.format(employeeId), 'w') as file:
