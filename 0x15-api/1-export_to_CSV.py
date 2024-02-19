@@ -1,25 +1,23 @@
 #!/usr/bin/python3
 """Modules"""
-import csv
 import requests
 import sys
 
+
 if __name__ == '__main__':
-    # Convert the employee ID to an integer
-    employeeId = int(sys.argv[1])
+    employeeId = sys.argv[1]
     baseUrl = "https://jsonplaceholder.typicode.com/users"
-    url = baseUrl + "/" + str(employeeId)
+    url = baseUrl + "/" + employeeId
 
-    resp = requests.get(url)
-    name = resp.json().get('name')
+    response = requests.get(url)
+    username = response.json().get('username')
 
-    # Define the URL for todos with the correct user ID
-    todosUrl = "https://jsonplaceholder.typicode.com/todos?userId=" + str(employeeId)
-    resp = requests.get(todosUrl)
-    tasks = resp.json()
+    todoUrl = url + "/todos"
+    response = requests.get(todoUrl)
+    tasks = response.json()
 
-    # Write the tasks to a CSV file
-    with open('{}.csv'.format(employeeId), 'w', newline='') as file:
-        writer = csv.writer(file, quoting=csv.QUOTE_ALL)
+    with open('{}.csv'.format(employeeId), 'w') as file:
         for task in tasks:
-            writer.writerow([employeeId, name, task.get('completed'), task.get('title')])
+            file.write('"{}","{}","{}","{}"\n'
+                       .format(employeeId, username, task.get('completed'),
+                               task.get('title')))
