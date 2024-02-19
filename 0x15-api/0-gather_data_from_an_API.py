@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """Modules"""
-import sys as s
 import re
 import requests
+import sys as s
 
 
 API = "https://jsonplaceholder.typicode.com"
