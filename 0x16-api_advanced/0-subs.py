@@ -11,7 +11,7 @@ def number_of_subscribers(subreddit):
     dd = requests.get(RLl, headers=hed, allow_redirects=False)
     if dd.ok:
         v = dd.json().get("data")
-	if data is not None:
-            v = data.get("subscribers")
+	if dd is not None:
+            v = dd.get("subscribers")
             return v if v is not None else 0
     return 0
