@@ -9,7 +9,7 @@ def recurse(subreddit, hot_list=[], next_page=None, count=0):
     
     if next_page:
         url += '?after={}'.format(next_page)
-    headers = {'User-Agent': user_agent}
+    headers = {'User-Agent': ""}
     r = requests.get(url, headers=headers, allow_redirects=False)
     if r.status_code != 200:
         return None
