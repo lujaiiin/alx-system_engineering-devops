@@ -7,11 +7,9 @@ def number_of_subscribers(subreddit):
     """number"""
     
     RLl = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    hed = {"User-Agent": "ubuntu:Python (by/lujaiiin)"}
+    hed = {"User-Agent": "ubuntu:Python"}
     dd = requests.get(RLl, headers=hed, allow_redirects=False)
     if dd.ok:
-        v = dd.json().get("data")
-	if dd is not None:
-            v = dd.get("subscribers")
-            return v if v is not None else 0
+        v = dd.json().get("data").get("subscribers")
+        return v if v is not None else 0
     return 0
