@@ -1,15 +1,16 @@
 #!/usr/bin/python3
-"""Modules"""
+"""MOdules"""
 import requests
 
 
 def number_of_subscribers(subreddit):
-    """number"""
-    
-    RLl = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    hed = {"User-Agent": "ubuntu:Python"}
-    dd = requests.get(RLl, headers=hed, allow_redirects=False)
-    if dd.ok:
-        v = dd.json().get("data").get("subscribers")
-        return v if v is not None else 0
-    return 0
+    """numer"""
+    Url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+    headers = {"User-Agent": "Mozilla/5.0"}
+    response = requests.get(Url, headers=headers, allow_redirects=False)
+    if response.status_code == 200:
+        dd = response.json()
+        subscribers = dd['data']['subscribers']
+        return subscribers
+    else:
+        return 0
