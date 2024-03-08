@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
-#installing
+#good work its ok lujain
+
 sudo apt-get -y update
 sudo apt-get -y install nginx
+
 name=$(hostname)
-echo "<h1>HollA HOLLA HOLAA $name</h1>" > /var/www/index.html
-echo "<h1>there is error babe</h1>" > /var/www/error_404.html
+
+echo "Hello World!" > /var/www/index.html
+echo "Ceci n'est pas une page" > /var/www/error_404.html
 con="server {
     listen 80 default_server;
     listen [::]:80 default_server;
@@ -14,7 +17,7 @@ con="server {
     root /var/www;
     index index.html;
 
-    server_name lujainb.tech;
+    server_name lujaindom.tech;
 
     error_page 404 /error_404.html;
 
@@ -27,5 +30,6 @@ con="server {
         return 301 https://www.nginx.com/blog/creating-nginx-rewrite-rules/;
     }
 }"
+
 echo "$con" | sudo tee /etc/nginx/sites-available/default
 sudo service nginx restart
