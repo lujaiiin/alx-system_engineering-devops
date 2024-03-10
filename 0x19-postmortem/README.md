@@ -13,6 +13,8 @@ Root Cause: The root cause was a memory leak in our application's backend,
 specifically within a caching mechanism that was not properly releasing memory.
 It was like a party where the guests kept bringing more snacks without clearing the old ones, leading to a chaotic mess.
 
+<img src="https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/294/pQ9YzVY.gif">
+
 <h3>Timeline</h3>
 <ul>
 <li>10:00 AM: The issue was first detected by our monitoring system, which alerted us to an unusual spike in memory usage.</li>
