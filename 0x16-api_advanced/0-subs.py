@@ -13,7 +13,7 @@ def number_of_subscribers(subreddit):
         returns the number or zero if not exits
     """
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    headers = {"User-Agent": "ubuntu:Python (by/AjwadG)"}
+    headers = {"User-Agent": "ubuntu:Python"}
 
     data = requests.get(url, headers=headers, allow_redirects=False)
 
