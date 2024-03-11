@@ -1,13 +1,16 @@
 #!/usr/bin/python3
 """
-    Modules
+    0-subs module
 """
 import requests
 
 
 def number_of_subscribers(subreddit):
     """
-        numbers_of_sub
+        take one arg the subreddit name
+        sends a get req to an api
+        to get the number of subscribers
+        returns the number or zero if not exits
     """
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
     headers = {"User-Agent": "ubuntu:Python (by/AjwadG)"}
